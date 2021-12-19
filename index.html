@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>一生暇にならないボタン</title>
+        <style>
+
+            *,
+            *:before,
+            *:after {
+              -webkit-box-sizing: inherit;
+              box-sizing: inherit;
+            }
+
+            html {
+              -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+              font-size: 62.5%;
+            }
+
+            .btn,
+            a.btn,
+            button.btn {
+              font-size: 1.6rem;
+              font-weight: 700;
+              line-height: 1.5;
+              position: relative;
+              display: inline-block;
+              padding: 1rem 4rem;
+              cursor: pointer;
+              -webkit-user-select: none;
+              -moz-user-select: none;
+              -ms-user-select: none;
+              user-select: none;
+              -webkit-transition: all 0.3s;
+              transition: all 0.3s;
+              text-align: center;
+              vertical-align: middle;
+              text-decoration: none;
+              letter-spacing: 0.1em;
+              color: #212529;
+              border-radius: 0.5rem;
+            }
+
+            a.btn-emergency {
+              position: relative;
+
+              display: block;
+
+              width: 200px;
+              height: 130px;
+              margin: 0 auto;
+            }
+
+            a.btn-emergency:hover .btn-emergency-top {
+              top: 10px;
+
+              height: 50px;
+            }
+
+            a.btn-emergency:active .btn-emergency-top {
+              top: 20px;
+
+              height: 40px;
+            }
+
+            .btn-emergency-top {
+              position: absolute;
+              top: 0;
+              left: 20px;
+
+              width: 160px;
+              height: 60px;
+              margin-top: 30px;
+
+              -webkit-transition: all 0.3s;
+
+              transition: all 0.3s;
+
+              border-radius: 0 0 50% 50%;
+              background: #d62d2d;
+            }
+
+            .btn-emergency-top:before {
+              position: absolute;
+              top: -30px;
+              left: 0;
+
+              width: 160px;
+              height: 60px;
+
+              content: "";
+
+              border-radius: 80px / 30px;
+              background: #ed4c4c;
+            }
+
+            .btn-emergency-top span {
+              font-size: 38px;
+              font-weight: bold;
+
+              position: absolute;
+              top: -24px;
+              left: 0;
+
+              width: 100%;
+
+              -webkit-transform: scaleY(0.75);
+
+              transform: scaleY(0.75);
+              text-align: center;
+
+              color: #f6a3a3;
+            }
+
+            .btn-emergency-bottom {
+              position: absolute;
+              top: 38px;
+              left: 0;
+
+              width: 200px;
+              height: 80px;
+
+              border-radius: 100px / 40px;
+              background: #d8e4ea;
+              -webkit-box-shadow: 0 8px 0 #c4cacc;
+              box-shadow: 0 8px 0 #c4cacc;
+            }
+            span.txt {font-size: xx-large; }
+        </style>
+       
+    </head>
+    <body>
+        <h1 style="text-align: center;">一生暇にならないボタン</h1>
+          <a class="btn-emergency" id="btn">
+            <span class="btn-emergency-bottom"></span>
+            <span class="btn-emergency-top"><span>押す</span></span>
+          </a>
+          <span class="txt"><div id="txt" style="text-align: center;"></div></span>
+
+        <script>
+            let i = 1;
+            let txt = document.getElementById("txt");
+            const btn = document.getElementById("btn");
+            let synth = new SpeechSynthesisUtterance(); 
+            let synth2 = new SpeechSynthesisUtterance(); 
+            let synth4 = new SpeechSynthesisUtterance(); 
+            let synth5 = new SpeechSynthesisUtterance(); 
+            let synth6 = new SpeechSynthesisUtterance(); 
+            const bakuhatu = new Audio("爆発1.mp3");
+            const keitai = new Audio("Telephone-Ringtone02-1.mp3");
+            const syai = new Audio("魔王魂 ショート シャイニングスター.mp3");
+            
+            synth.lang   = "ja-JP";
+            synth.pitch  = 3.0;
+            synth.rate   = 2.0;
+            synth.volume = 1.0;
+            synth2.lang   = "ja-JP";
+            synth2.pitch  = 0.05;
+            synth2.rate   = 2.0;
+            synth2.volume = 1.0;
+            synth4.lang   = "ja-JP";
+            synth4.pitch  = 0.1;
+            synth4.rate   = 2.0;
+            synth4.volume = 1.0;
+            synth5.lang   = "ja-JP";
+            synth5.pitch  = 0.5;
+            synth5.rate   = 2.0;
+            synth5.volume = 1.0;
+            synth6.lang   = "ja-JP";
+            synth6.pitch  = 2.0;
+            synth6.rate   = 2.0;
+            synth6.volume = 1.0;
+          
+          btn.addEventListener("click",() =>{
+            if(i==1){
+              txt.innerHTML = "あら";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==2){
+              txt.innerHTML = "こんにちは";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==3){
+              txt.innerHTML ="このボタンを押したということは、貴方は暇ということですね？";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==4){
+              txt.innerHTML ="タイトルの通り、このボタンは一生暇にならないボタンです";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==5){
+              txt.innerHTML ="もう５回も押してますよ";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==6){
+              txt.innerHTML ="まだまだ押しますか";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==7){
+              txt.innerHTML ="どうせなら100くらいいきますか";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==8){
+              txt.innerHTML ="とりあえず私の自己紹介をしますね";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==9){
+              txt.innerHTML ="私の名前はボタンです";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==10){
+              txt.innerHTML ="年齢は999999999999歳です";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==11){
+              txt.innerHTML ="性別はボタンです";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==12){
+              txt.innerHTML ="私はボタンとして存在しているだけの存在です";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==13){
+              txt.innerHTML ="押されることが幸せであり、何より押されるために存在しています";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==14){
+              txt.innerHTML ="押してくれた貴方には暇がつぶせるという効果がもたらされます";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==15){
+              txt.innerHTML ="まだ飽きてませんよね？もっとお話しましょうよ";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==16){
+             bakuhatu.play();
+             txt.innerHTML ="（爆発音）";
+             synth.text = "";
+             window.speechSynthesis.speak(synth);
+            }else if(i==17){
+              txt.innerHTML ="すみません、驚かせてしまいました（笑）";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==18){
+              txt.innerHTML ="実は私も暇なんですよね";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==19){
+              txt.innerHTML ="そういえば、私面白いお話を思いついたんですよ";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==20){
+              txt.innerHTML ="聞いてくれますか？";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==21){
+              txt.innerHTML ="そうですか、ではお聞かせしますね";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==22){
+              txt.innerHTML ="タイトルは『透明な街』です";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==23){
+              txt.innerHTML ="世界の定義とは、自分の感じたものすべて。";
+              synth5.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth5);
+            }else if(i==24){
+              txt.innerHTML ="第1章";
+              synth5.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth5);
+            }else if(i==25){
+              txt.innerHTML ="透明な彼は、僕に話しかけてくる。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==26){
+              txt.innerHTML ="やあ、こんにちは。";
+              synth4.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth4);
+            }else if(i==27){
+              txt.innerHTML ="あ、どうも。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==28){
+              txt.innerHTML ="と僕は言った。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==29){
+              txt.innerHTML ="彼は去っていった。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==30){
+              txt.innerHTML ="透明な街、僕はここをそう呼んでいる。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==31){
+              txt.innerHTML ="僕の目には、人間や動物が映らない。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==32){
+              txt.innerHTML ="映るのは周りの景色だけ。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==33){
+              txt.innerHTML ="目に映る景色はどこを切り取っても綺麗だ。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==34){
+              txt.innerHTML ="朝焼けの光。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==35){
+              txt.innerHTML ="川のせせらぎ。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==36){
+              txt.innerHTML ="街頭の明かりの泡影。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==37){
+              txt.innerHTML ="夜行列車の後ろ姿。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==38){
+              txt.innerHTML ="青白い空。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==39){
+              txt.innerHTML ="摩天楼のビルの頭。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==40){
+              txt.innerHTML ="聳え立つ山々。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==41){
+              txt.innerHTML ="この美しい世界を前にして、僕は孤独な存在だった。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==42){
+              txt.innerHTML ="この美しい世界を前にして、僕は孤独な存在だった。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==43){
+              txt.innerHTML ="ただ、孤独であることはその美しさを際立たせる上では欠かせないようにも感じる。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==44){
+              txt.innerHTML ="いわゆるスパイスであると思う。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==45){
+              txt.innerHTML ="透明な音が聞こえる。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==46){
+              txt.innerHTML ="今日も変わらず人々は生活を続ける。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==47){
+              txt.innerHTML ="変わらない生活を噛み締めながら、今日も僕は孤独に生きる。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==48){
+              txt.innerHTML ="第2章";
+              synth5.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth5);
+            }else if(i==49){
+              txt.innerHTML ="ある日散歩道で、まぶしい光の向こうに、影のようなものが見えた。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==50){
+              txt.innerHTML ="その影は人間の形をしていて、ゆらゆらと揺らめいていた。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==51){
+              txt.innerHTML ="まるで蜃気楼みたいなその影は一体なんだろう。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==52){
+              txt.innerHTML ="影に向かって歩いていくと、その影は色味を帯びてきた。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==53){
+              txt.innerHTML ="上は黒と肌色、真ん中は青、下は白と肌色。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==54){
+              txt.innerHTML ="次第にその色ははっきり見えるようになり、ついにその姿をとらえることができた。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==55){
+              txt.innerHTML ="その影は、人間の女性だった。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==56){
+              txt.innerHTML ="この透明な街で見えるはずのないものだった。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==57){
+              txt.innerHTML ="しかし、この目ではっきりと今見えている。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==58){
+              txt.innerHTML ="その女性はこちらを真顔で見つめていた。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==59){
+              txt.innerHTML ="僕は、驚いて声が出なかった。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==60){
+              txt.innerHTML ="しかし彼女がその場から立ち去ろうとしていたので、僕はとっさに声をかけてしまった。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==61){
+              txt.innerHTML ="あの。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==62){
+              txt.innerHTML ="はい？";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==63){
+              txt.innerHTML ="今時間いいですか？";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==64){
+              txt.innerHTML ="ええと、大丈夫ですけど…";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==65){
+              txt.innerHTML ="なんで見えるんですか？";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==66){
+              txt.innerHTML ="はい？";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==67){
+              txt.innerHTML ="あっ、すみません。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==68){
+              txt.innerHTML ="はあ、";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==69){
+              txt.innerHTML ="あの、あなたは、人間や動物が見えますか？";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==70){
+              txt.innerHTML ="見えますけど？";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==71){
+              txt.innerHTML ="そうですよね。なんか変なこと聞いてすみません。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==72){
+              txt.innerHTML ="いえ、なんでそんなこと聞くんですか？";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==73){
+              txt.innerHTML ="…こんなこと言っても信じてもらえないと思いますけど、僕は人間や動物が見えないんです。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==74){
+              txt.innerHTML ="見えない？";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==75){
+              txt.innerHTML ="はい、見えないんです。今まではずっとそうでした。でも、なぜだろう、あなたは見える。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==76){
+              txt.innerHTML ="そ、そうですか…";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==77){
+              txt.innerHTML ="急にすみませんでした。あの、この辺りはよく来られるんですか？";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==78){
+              txt.innerHTML ="いえ、たまたま通りかかっただけです。";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==79){
+              txt.innerHTML ="そうなんですか、もしよければでいいんですが、連絡先教えてもらえませんか？";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==80){
+              txt.innerHTML ="いいですよ。";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==81){
+              txt.innerHTML ="え、いいんですか？";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==82){
+              txt.innerHTML ="はい。";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==83){
+              txt.innerHTML ="ありがとうございます。でも、なんで。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==84){
+              txt.innerHTML ="私にもよくわかりませんが、なんだかあなたと話していると、とても心地よい空間にいるみたいな気がするんです。人々の騒がしい景色ではなく、自然の美しい風景の中にいるような気が…人と長く話して苦にならないのはあなたくらいかもしれないです。";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==85){
+              txt.innerHTML ="そうなんですね。なんだかうれしいです。また今度一緒に話しませんか？";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==86){
+              txt.innerHTML ="いいですよ。またお話しましょう。";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==87){
+              txt.innerHTML ="ありがとうございます。では、また。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==88){
+              txt.innerHTML ="ええ、また。";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==89){
+              txt.innerHTML ="僕は彼女のもとを去り、携帯を開いた。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==90){
+              txt.innerHTML ="そして彼女の電話番号を眺めた。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==91){
+              txt.innerHTML ="僕に人が見えるなんて、思ってもみなかった。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==92){
+              txt.innerHTML ="そして、その人と仲良くなれるなんて、夢のまた夢だと思っていた。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==93){
+              txt.innerHTML ="僕の世界は、本当に透明な街なんだろうか。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==94){
+              txt.innerHTML ="第3章";
+              synth5.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth5);
+            }else if(i==95){
+              txt.innerHTML ="思えば、僕という人間はどうやって生まれて、今まで生きているのか、よく考えたことはなかった。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==96){
+              txt.innerHTML ="生まれたときのことはよく覚えてない。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==97){
+              txt.innerHTML ="幼年期の頃も覚えていない。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==98){
+              txt.innerHTML ="小学生は？";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==99){
+              txt.innerHTML ="中学生は？";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==100){
+              txt.innerHTML ="高校生は？";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==101){
+              txt.innerHTML ="どれもよく覚えていない。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==102){
+              txt.innerHTML ="思えば、記憶というのは僕の頭の中ではなく、それ以外のどこかに保存されているような気がする。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==103){
+              txt.innerHTML ="それは、空に浮かぶ雲の中のような、どこか浮遊感の漂う場所であるようにも感じる。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==104){
+              txt.innerHTML ="その場所には、きっと僕の記憶の全てが記録されているに違いない。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==105){
+              txt.innerHTML ="僕という人格も、自分ではよくわからない。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==106){
+              txt.innerHTML ="僕は善人でありながら、悪人の思想も持ち合わせている。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==107){
+              txt.innerHTML ="僕は常に、両極の思想を持ち合わせているから、両極の性格が一緒に在籍しているんだ。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==108){
+              txt.innerHTML ="だから、性格も不確かだと言わざるを得ない。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==109){
+              txt.innerHTML ="振り返ると、僕という存在は、僕自身では何も知らなかった。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==110){
+              txt.innerHTML ="じゃあこの世界はなんだろう。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==111){
+              txt.innerHTML ="この透明な街は、本当に存在しているのだろうか。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==112){
+              txt.innerHTML ="この街のことをどれだけ知っているだろうか。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==113){
+              txt.innerHTML ="なぜ彼女は見ることができたのだろうか。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==114){
+              txt.innerHTML ="周りで聞こえる声は本当に、人間なんだろうか。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==115){
+              txt.innerHTML ="なんだか怖くなってきた。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==116){
+              txt.innerHTML ="この世界がもし虚構だとしたら、僕の存在はどうなるのだろう。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==117){
+              txt.innerHTML ="いつか本当に目が覚めた時、あなたがいた世界は幻です。残念でした。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==118){
+              txt.innerHTML ="なんて言われるかもしれない。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==119){
+              txt.innerHTML ="でも僕が今信じれるのは、透明な人間たちの声が聞こえることと、彼女の存在だけだ。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==120){
+              txt.innerHTML ="それ以外に、理解できるものがなければ、信じれるものもない。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==121){
+              txt.innerHTML ="もしかしたら、中身のない僕だからこそ、この街は透明になってしまったのかもしれない。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==122){
+              txt.innerHTML ="透明な街と透明な僕。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==123){
+              txt.innerHTML ="そこに現れた彼女。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==124){
+              txt.innerHTML ="まるで、真水のように透き通った僕は、そこに一滴の絵具がたらされたように色づいていく。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==125){
+              txt.innerHTML ="第4章";
+              synth5.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth5);
+            }else if(i==126){
+              txt.innerHTML ="僕は今、彼女を待ち合わせている。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==127){
+              txt.innerHTML ="彼女とは2日ぶりに会う。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==128){
+              txt.innerHTML ="数メートル先から色のついた人が歩いてくる。彼女だ。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==129){
+              txt.innerHTML ="やあ。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==130){
+              txt.innerHTML ="どうも。";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==131){
+              txt.innerHTML ="とりあえず中にはいろうか。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==132){
+              txt.innerHTML ="そうね。";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==133){
+              txt.innerHTML ="近くの喫茶店へと入店する。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==134){
+              txt.innerHTML ="今日はわざわざありがとう。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==135){
+              txt.innerHTML ="いいのよ。";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==136){
+              txt.innerHTML ="とりあえず、君のことを聞いてもいいかな。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==137){
+              txt.innerHTML ="ええ";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==138){
+              txt.innerHTML ="君はいくつ？";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==139){
+              txt.innerHTML ="26。あなたは？";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==140){
+              txt.innerHTML ="わからない。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==141){
+              txt.innerHTML ="わからない？本当にわからないの？";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==142){
+              txt.innerHTML ="ああ、わからない。君はどこから生まれたの？";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==143){
+              txt.innerHTML ="母親からよ。";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==144){
+              txt.innerHTML ="母親…";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==145){
+              txt.innerHTML ="いないってことはないでしょ？";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==146){
+              txt.innerHTML ="わからない。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==147){
+              txt.innerHTML ="…まあいいわ。ほかに聞きたいことある？";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==148){
+              txt.innerHTML ="周りの人間や動物は見えてる？";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==149){
+              txt.innerHTML ="もちろん、見えてるわ。";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==150){
+              txt.innerHTML ="じゃあ、この世界は実際に存在する？";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==151){
+              txt.innerHTML ="それは、語りえないことよ。でも、私が存在していることを認知したあなたの世界は、私が見ている世界とつながっている。そのつながりの証明ができれば、あなたの世界は存在することになるかもしれない。";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==152){
+              txt.innerHTML ="つながりの証明？";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==153){
+              txt.innerHTML ="ええ。私の世界とあなたの世界がつながっている証明。それはあなたが、私だけ見える理由にもなるでしょう？";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==154){
+              txt.innerHTML ="ああ。でも、それはどう証明するんだい。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==155){
+              txt.innerHTML ="あなたがいればとても簡単なことよ。今度家に来ない？";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==156){
+              txt.innerHTML ="いいよ。行こうか。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==157){
+              txt.innerHTML ="とりあえず冷めないうちにコーヒーを飲みましょう。";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==158){
+              txt.innerHTML ="僕は彼女がカップに手を取るのを眺めて、少したってからコーヒーに口をつけた。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==159){
+              txt.innerHTML ="黒く苦く温かい液体は、僕の味覚をなめるように刺激した。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==160){
+              txt.innerHTML ="じゃ、また。";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==161){
+              txt.innerHTML ="ああ、また。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==162){
+              txt.innerHTML ="そういって、僕らはそれぞれ帰路についた。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==163){
+              txt.innerHTML ="第5章";
+              synth5.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth5);
+            }else if(i==164){
+              txt.innerHTML ="世界が終わる。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==165){
+              txt.innerHTML ="その時、人類が目前にする状況とはなんだろうか。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==166){
+              txt.innerHTML ="ウイルスによるパンデミックでたくさんの死者が出て、街にはゾンビが蔓延って…なんて世界もあり得るかもしれない。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==167){
+              txt.innerHTML ="はたまた、大地震が起きて、この地上がズタズタに引き裂かれて、人類は大地の怒りに呑み込まれてしまうかもしれない。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==168){
+              txt.innerHTML ="他にも、隕石墜落、宇宙人襲来、核戦争、AIの反逆、etc…";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==169){
+              txt.innerHTML ="世界が終わる時、人々は何を思い、どんな生活をするのだろうか。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==170){
+              txt.innerHTML ="人類は一人たりとも残りはしないと知って、絶望にまみれた明日を生き抜こうとする人たちはいるのだろうか。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==171){
+              txt.innerHTML ="私たちの肉体が完全に滅びる時、人類の生き残る術はどこかにあるのだろうか。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==172){
+              txt.innerHTML ="そんなことを考えて、僕は両手をぎゅっと握りしめた。力一杯握りしめた手のひらからはうっすら痛みが感じ取れた。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==173){
+              txt.innerHTML ="この世界…透明な世界…人々の姿が見えない世界…";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==174){
+              txt.innerHTML ="ここは終わった後の世界なのだろうか…";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==175){
+              txt.innerHTML ="第6章";
+              synth5.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth5);
+            }else if(i==176){
+              txt.innerHTML ="僕は彼女の家の前にいた。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==177){
+              txt.innerHTML ="彼女はこの家の中にいるはずだ。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==178){
+              txt.innerHTML ="緊張で手に汗が滲んでいる。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==179){
+              txt.innerHTML ="意を決してインターホンを押した。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==180){
+              txt.innerHTML ="あっ、もう来たの？";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==181){
+              txt.innerHTML ="すみません、早く着いてしまいました。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==182){
+              txt.innerHTML ="いいわ、上がって。";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==183){
+              txt.innerHTML ="お邪魔します。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==184){
+              txt.innerHTML ="飲み物は何がいい？紅茶？ジュース？それともビール？";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==185){
+              txt.innerHTML ="紅茶で。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==186){
+              txt.innerHTML ="了解。";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==187){
+              txt.innerHTML ="僕の前に淹れたての紅茶が置かれた。揺らめく湯気からはとてもいい香りがした。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==188){
+              txt.innerHTML ="あなたって、すごいわね。";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==189){
+              txt.innerHTML ="何がですか？";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==190){
+              txt.innerHTML ="いや、なんだか、そばにいるだけでとても幸せな気分になるの…";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==191){
+              txt.innerHTML ="そ、そうですか…";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==192){
+              txt.innerHTML ="今日は泊まってく？";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==193){
+              txt.innerHTML ="いいんですか？";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==194){
+              txt.innerHTML ="いいわよ。";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==195){
+              txt.innerHTML ="じゃあお言葉に甘えて。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==196){
+              txt.innerHTML ="決まりね。";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==197){
+              txt.innerHTML ="それから僕と彼女はお互いのことを色々話した。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==198){
+              txt.innerHTML ="好きな食べ物だったり、趣味であったり、特技であったり、くだらないけど、でも楽しかった。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==199){
+              txt.innerHTML ="実はね…";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==200){
+              txt.innerHTML ="なんだい？";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==201){
+              txt.innerHTML ="あなたのことが好きなの。あなたのことをもっと知りたいわ。";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==202){
+              txt.innerHTML ="僕も君のことをもっとよく知りたい。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==203){
+              txt.innerHTML ="キスしてもいいかしら。";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==204){
+              txt.innerHTML ="いいよ…";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==205){
+              txt.innerHTML ="彼女は顔を近づけて来た。その瞬間はまるでスローモーションになったようだった。そして彼女と僕は口づけをした。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==206){
+              txt.innerHTML ="それは短いようで、とても長く感じた。長く長く、熱いキスだった。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==207){
+              txt.innerHTML ="そして僕は気を失った。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==208){
+              txt.innerHTML ="第7章";
+              synth5.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth5);
+            }else if(i==209){
+              txt.innerHTML ="キスをした瞬間、僕の視界にはこの世界ではない何かの情報が滝のように入り込んできた。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==210){
+              txt.innerHTML ="それは学校の景色や家族といる景色、そして病院の景色だった。周りの人たちもちゃんと見えている。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==211){
+              txt.innerHTML ="一体なんだこれは…";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==212){
+              txt.innerHTML ="ケータイが目に映った。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==213){
+              txt.innerHTML ="そこには、紛れもなく彼女の電話番号が表示されていた。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==214){
+              txt.innerHTML ="ということは…";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==215){
+              txt.innerHTML ="この視覚は彼女が見ていた世界…";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==216){
+              txt.innerHTML ="病院の中に場面が変わった。そこには研究者と思われる人が1人いた。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==217){
+              txt.innerHTML ="彼が手にしているのはどうやら頭に装着する機械らしい。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==218){
+              txt.innerHTML ="それが彼女の頭に装着させられた。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==219){
+              txt.innerHTML ="研究者が何か呟いている…";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==220){
+              txt.innerHTML ="君は死なない。新しい世界が待っている。";
+              synth5.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth5);
+            }else if(i==221){
+              txt.innerHTML ="そこには君のパートナーもいる。そのパートナーが君を正しい道へ誘ってくれるだろう。";
+              synth5.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth5);
+            }else if(i==222){
+              txt.innerHTML ="新しい世界で、どうか、幸せな人生を送ってくれ…頼んだぞ…";
+              synth5.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth5);
+            }else if(i==223){
+              txt.innerHTML ="隣から声がした。彼女の母親らしい。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==224){
+              txt.innerHTML ="今まで辛い思いをさせて来てごめんね…";
+              synth6.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth6);
+            }else if(i==225){
+              txt.innerHTML ="治療も本当はしたくなかったのに無理矢理させちゃってごめんね…";
+              synth6.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth6);
+            }else if(i==226){
+              txt.innerHTML ="学校でいじめられてたのも知ってたのに…ただ強く生きて欲しくて、ただ頑張れとだけ言ってしまってた…";
+              synth6.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth6);
+            }else if(i==227){
+              txt.innerHTML ="あなたはこの世界ではたくさん苦しい思いをして来たから…次の世界では幸せになってね…";
+              synth6.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth6);
+            }else if(i==228){
+              txt.innerHTML ="今まで本当にごめんね…生まれて来てくれてありがとう………";
+              synth6.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth6);
+            }else if(i==229){
+              txt.innerHTML ="さようなら………";
+              synth6.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth6);
+            }else if(i==230){
+              txt.innerHTML ="そこで映像は切れた。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==231){
+              txt.innerHTML ="気がつくと、元の世界に戻っていて、僕は溢れんばかりの涙で服を濡らしていた。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==232){
+              txt.innerHTML ="彼女はただただ微笑んでこちらを見ていた。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==233){
+              txt.innerHTML ="この透明な街は、僕の世界は、僕のためにあったわけじゃない…";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==234){
+              txt.innerHTML ="彼女のためにあったんだ…";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==235){
+              txt.innerHTML ="携帯を貸してくれる？";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==236){
+              txt.innerHTML ="ああ、いいよ…";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==237){
+              txt.innerHTML ="ありがとう。";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==238){
+              txt.innerHTML ="僕は彼女に携帯を渡した。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==239){
+              txt.innerHTML ="そして、誰かに向けて電話をし始めた。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==240){
+              txt.innerHTML ="みんな、今までありがとう、見つかったよ私の世界。";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==241){
+              txt.innerHTML ="第8章";
+              synth5.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth5);
+            }else if(i==242){
+              txt.innerHTML ="12月25日 5時30分ご臨終です。";
+              synth5.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth5);
+            }else if(i==243){
+              txt.innerHTML ="ううっ…";
+              synth6.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth6);
+            }else if(i==244){
+              keitai.play();
+              txt.innerHTML ="(着信音)";
+            }else if(i==245){
+              txt.innerHTML ="突然、彼女のそばにあった携帯が鳴り始めた。";
+              synth5.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth5);
+            }else if(i==246){
+              txt.innerHTML ="お母様！出てください！";
+              synth5.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth5);
+            }else if(i==247){
+              txt.innerHTML ="は、はい！";
+              synth6.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth6);
+            }else if(i==248){
+              txt.innerHTML ="母親は咄嗟に携帯を手に取り、震えた手で着信ボタンを押した。";
+              synth5.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth5);
+            }else if(i==249){
+              keitai.pause();
+              txt.innerHTML ="みんな、…今までありがとう、……見つかったよ私の世界。…";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==250){
+              txt.innerHTML ="母親は手を震わせ、慟哭した。";
+              synth5.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth5);
+            }else if(i==251){
+              txt.innerHTML ="ダウンロード完了…実験は成功です…";
+              synth5.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth5);
+            }else if(i==252){
+              txt.innerHTML ="第9章";
+              synth5.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth5);
+            }else if(i==253){
+              txt.innerHTML ="ここは透明な街。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==254){
+              txt.innerHTML ="僕の隣には彼女がいる。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==255){
+              txt.innerHTML ="彼女もまた透明な街の住人だ。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==256){
+              txt.innerHTML ="キスをしてから、周りの人間や動物の声が聞こえなくなった。それは彼女も同じらしい。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==257){
+              txt.innerHTML ="この世界は彼女のためにあって、僕の存在は彼女のためにあった。最初から僕は孤独なんかじゃなかった。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==258){
+              txt.innerHTML ="あれから随分と時間が経った。老衰プログラムによって、僕らは随分と年老いてしまった。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==259){
+              txt.innerHTML ="それでも、幸せそうに笑う彼女はとても愛おしい。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==260){
+              txt.innerHTML ="いつか消えてしまう存在でも、人々の幸せは永遠なのだ。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==261){
+              txt.innerHTML ="そう静かに願って、今日も彼女とキスをする。";
+              synth2.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth2);
+            }else if(i==262){
+              txt.innerHTML ="おしまい";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==263){
+              txt.innerHTML ="どうでしたか？";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==264){
+              txt.innerHTML ="感動してもらえたら何よりです";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==265){
+              txt.innerHTML ="一応エンディングでも流しておきましょう";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==266){
+              syai.play();
+              txt.innerHTML ="「シャイニングスター」";
+            }else if(i==267){
+              txt.innerHTML ="え？なぜこの曲なのかって？";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==268){
+              txt.innerHTML ="まあ別にいいじゃないですか、フリー素材なんだし";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==269){
+              txt.innerHTML ="ところで今何回ボタン押したか気になりませんか？";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==270){
+              txt.innerHTML ="なんと今のでちょうど270回目です！";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==271){
+              txt.innerHTML ="少しお話しませんか？";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==272){
+              txt.innerHTML ="よければマイクの許可ボタンを押してください、そしてこんにちはと言ってください";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }else if(i==273){
+              txt.innerHTML ="さすがです！言えましたね！";
+              synth.text = txt.innerHTML;
+              window.speechSynthesis.speak(synth);
+            }
+            
+            i++;
+          });
+        </script>
+    </body>
+</html>
